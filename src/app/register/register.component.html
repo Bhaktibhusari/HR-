@@ -1,0 +1,72 @@
+<div class="form-box1">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="box1">
+        <h1>Register</h1>
+        <div>
+            <label for="first_name">First Name:</label><br>
+            <input type="text" formControlName="first_name" class="box mt-3 mb-3" placeholder="Enter First Name">
+            <div *ngIf="formControls.first_name.touched && formControls.first_name.invalid" class="error-message">
+                <div *ngIf="formControls.first_name.errors.required">First Name is required.</div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <label for="last_name">Last Name:</label><br>
+            <input type="text" formControlName="last_name" class="box mt-3 mb-3" placeholder="Enter Last Name">
+            <div *ngIf="formControls.last_name.touched && formControls.last_name.invalid" class="error-message">
+                <div *ngIf="formControls.last_name.errors.required">User Name is required.</div>
+            </div>
+        </div>
+        <br>
+        <!-- <div>
+            <label for="user_type">User Type:</label><br>
+            <input type="text" formControlName="user_type" class="box mt-3 mb-3" placeholder="Enter User type">
+            <div *ngIf="formControls.user_type.touched && formControls.user_type.invalid" class="error-message">
+                <div *ngIf="formControls.user_type.errors.required">User Type is required.</div>
+            </div>
+        </div> -->
+        <!-- <br>
+        <div>
+            <label for="address">Address:</label><br>
+            <input type="text" formControlName="address" class="box mt-3 mb-3" placeholder="Enter Address">
+            <div *ngIf="formControls.address.touched && formControls.address.invalid" class="error-message">
+                <div *ngIf="formControls.address.errors.required">Address is required.</div>
+            </div>
+        </div>
+        <br> -->
+        <div>
+            <label for="email">Email:</label><br>
+            <input type="email" formControlName="email" class="box mt-3 mb-3" placeholder="Enter email">
+            <div *ngIf="formControls.email.touched && formControls.email.invalid" class="error-message">
+                <div *ngIf="formControls.email.errors.required">Email is required.</div>
+                <div *ngIf="formControls.email.errors.email">Invalid email format.</div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <label for="password">Password:</label><br>
+            <input type="password" formControlName="password" class="box mt-3 mb-3" placeholder="Enter Password">
+            <div *ngIf="formControls.password.touched && formControls.password.invalid" class="error-message">
+                <div *ngIf="formControls.password.errors.required">Password is required.</div>
+                <div *ngIf="formControls.password.errors.minlength">
+                    Password must be at least 6 characters long.
+                </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <label for="confirmPassword">Confirm Password:</label><br><br>
+            <input type="password" formControlName="confirmPassword" class="box mt-3 mb-3"
+                placeholder="Enter Confirm Password">
+            <div *ngIf="formControls.confirmPassword.touched && formControls.confirmPassword.invalid"
+                class="error-message">
+                <div *ngIf="formControls.confirmPassword.errors.required">Confirm Password is required.</div>
+            </div>
+        </div>
+        <br>
+        <button type="submit" [disabled]="registrationForm.invalid">Register</button><br><br>
+
+        <span>You have already Account <a routerLink="login">login</a></span>
+    </form>
+</div>
+
+<router-outlet></router-outlet>
